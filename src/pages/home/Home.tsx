@@ -4,6 +4,7 @@ import ColumnDisplay from "./ColumnDisplay";
 
 import { fetchTvShows, fetchMovies } from "./Query";
 import { useQuery } from "@tanstack/react-query";
+import { Navigate } from "react-router-dom";
 
 export enum DisplayType {
   Movies = "movies",
@@ -25,6 +26,10 @@ const Home = () => {
     queryFn: fetchTvShows,
   });
 
+  if ( localStorage.getItem('guest_session_is') === null ){
+    return <Navigate to='/auth' />
+  }
+  
   return (
     <div style={{ height: "auto" }}>
 
@@ -60,5 +65,7 @@ const Home = () => {
     </div>
   );
 };
+
+
 
 export default Home;

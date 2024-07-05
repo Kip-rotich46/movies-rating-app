@@ -30,21 +30,19 @@ const TvShow = () => {
     return <Loader active />;
   }
 
- 
-
-  // const seasonsPanels = data.seasons?.map((season: any) => ({
-  //   key: season.id,
-  //   title: `Season ${season.season_number}`,
-  //   content: {
-  //     content: (
-  //       <Card
-  //         style={{ height: "70px" }}
-  //         meta={season.air_date}
-  //         description={`${season.episode_count} episodes`}
-  //       />
-  //     ),
-  //   },
-  // }));
+  const seasonsPanels = data.seasons?.map((season: any) => ({
+    key: season.id,
+    title: `Season ${season.season_number}`,
+    content: {
+      content: (
+        <Card
+          style={{ height: "70px" }}
+          meta={season.air_date}
+          description={`${season.episode_count} episodes`}
+        />
+      ),
+    },
+  }));
 
   return (
     <div style={{ marginTop: 50 }}>
@@ -117,16 +115,19 @@ const TvShow = () => {
                   <List.Header>Number of seasons</List.Header>
                   {data.number_of_seasons}
                 </List.Item>
-                {/* <List.Item>
+                <List.Item>
                   <List.Header>Seasons:</List.Header>
-                  <List.Description style={{height:'200px', overflowY:'scroll'}}>
+                  <List.Description
+                    style={{ height: "200px", overflowY: "scroll" }}
+                  >
                     <Accordion
                       defaultActiveIndex={0}
                       panels={seasonsPanels}
                       styled
                     />
                   </List.Description>
-                </List.Item> */}
+                </List.Item>{" "}
+                * *{" "}
                 <List.Item>
                   <List.Header>Voting Average: </List.Header>
                   {data.vote_average}
@@ -143,6 +144,6 @@ const TvShow = () => {
     </div>
   );
 };
-//1:38:05
+
 
 export default TvShow;
